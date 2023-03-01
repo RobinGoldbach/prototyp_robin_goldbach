@@ -1,0 +1,9 @@
+{
+    "persons": {
+        "1": {
+            "firstname": "hans",
+            "nachname": "Muster"
+        },
+        "2": {}
+    }
+}
