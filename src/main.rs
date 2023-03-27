@@ -23,8 +23,9 @@ use crate::{group::Group, persons::Persons};
 fn main() {
     const PERSONS_MIN: i32 = 120;
     const PERSONS_MAX: i32 = 300;
+    const pers: i32 = 80;
     const PERSONS_Test_2: i32 = 200;
-    let group_size1: i32 = 4;
+    let group_size1: i32 = 5;
     let group_size3 = 5;
     let group_size2 = 6;
     let mut filename = String::new();
@@ -100,7 +101,7 @@ fn main() {
     };
     //300 /4 = 75 + 5(puffer);
     //let mut global_group_list = [current_group; 80];
-    let all_pers = create_persons(PERSONS_MAX);
+    let all_pers = create_persons(pers);
     let mut existing_pers = Vec::new();
     let help_pers = all_pers.clone();
     for p in help_pers {
@@ -110,7 +111,7 @@ fn main() {
     let t = all_pers.clone();
 
     //println!("{}", all_pers.len());
-    let shifts = calculate(all_pers, group_size1, SHIFTS, PERSONS_MAX, existing_pers);
+    let shifts = calculate(all_pers, group_size1, SHIFTS, pers, existing_pers);
     let mut t = shifts.clone();
     let mut quality = calculateQuality(
         //quality an stelle 4 ist gesammtquali
@@ -1309,6 +1310,7 @@ fn try_better_result4(
             {
                 sec_number = false;
             } else {
+                sec_number = true;
                 second_group_number = rng.gen_range(0..group_count);
             }
             if (third_group_number != first_group_number
@@ -1317,6 +1319,7 @@ fn try_better_result4(
             {
                 third_number = false;
             } else {
+                third_number = true;
                 third_group_number = rng.gen_range(0..group_count);
             }
             if (fourth_group_number != first_group_number
@@ -1325,6 +1328,7 @@ fn try_better_result4(
             {
                 fourth_number = false;
             } else {
+                fourth_number = true;
                 fourth_group_number = rng.gen_range(0..group_count);
             }
         }
